@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - E-commerce Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            🛍️ ShopEase
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart
+            <span id="cart-count">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Shop Smart. Live Better.</h1>
+
+            <p>
+                Discover amazing products at the best prices.
+            </p>
+
+            <a href="#products" class="shop-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+
+        <h2>Our Products</h2>
+
+        <!-- Search -->
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search products..."
+                onkeyup="searchProducts()"
+            >
+
+        </div>
+
+
+        <!-- Categories -->
+        <div class="categories">
+
+            <button onclick="filterProducts('all')">
+                All
+            </button>
+
+            <button onclick="filterProducts('electronics')">
+                Electronics
+            </button>
+
+            <button onclick="filterProducts('fashion')">
+                Fashion
+            </button>
+
+            <button onclick="filterProducts('shoes')">
+                Shoes
+            </button>
+
+            <button onclick="filterProducts('accessories')">
+                Accessories
+            </button>
+
+        </div>
+
+
+        <!-- Product Container -->
+        <div class="products" id="product-container">
+
+            <!-- Products will be created using JavaScript -->
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>About ShopEase</h2>
+
+        <p>
+            ShopEase is a simple online shopping website where
+            you can discover quality products at affordable prices.
+            We make online shopping simple, fast and enjoyable.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email: support@shopease.com</p>
+        <p>Phone: +91 98765 43210</p>
+
+    </section>
+
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay">
+
+        <div class="cart">
+
+            <div class="cart-header">
+
+                <h2>🛒 Your Cart</h2>
+
+                <button onclick="closeCart()">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <div id="cart-items">
+
+                <p class="empty-cart">
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+
+            <div class="cart-footer">
+
+                <h3>
+                    Total:
+                    ₹<span id="cart-total">0</span>
+                </h3>
+
+                <button class="checkout-btn" onclick="checkout()">
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 ShopEase. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

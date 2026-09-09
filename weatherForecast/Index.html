@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Modern weather forecasting app showing current weather, hourly forecast and weekly forecast.">
+
+    <title>WeatherNow - Weather Forecast</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- APP CONTAINER -->
+    <!-- ============================= -->
+
+    <div class="app-container">
+
+        <!-- ============================= -->
+        <!-- HEADER -->
+        <!-- ============================= -->
+
+        <header class="header">
+
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <span>WeatherNow</span>
+            </div>
+
+            <div class="header-actions">
+
+                <button class="location-btn" id="locationBtn">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <span>Use My Location</span>
+                </button>
+
+                <button class="settings-btn" aria-label="Settings">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================= -->
+        <!-- SEARCH SECTION -->
+        <!-- ============================= -->
+
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search city..."
+                    autocomplete="off"
+                    aria-label="Enter city name">
+
+                <button id="searchBtn" class="search-btn">
+                    Search
+                </button>
+
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message hidden">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>City not found. Please try another city.</span>
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MAIN WEATHER CONTENT -->
+        <!-- ============================= -->
+
+        <main>
+
+            <!-- ============================= -->
+            <!-- CURRENT WEATHER -->
+            <!-- ============================= -->
+
+            <section class="current-weather">
+
+                <div class="current-weather-header">
+
+                    <div>
+                        <p class="weather-label">
+                            Current Weather
+                        </p>
+
+                        <h1 id="cityName">
+                            Pune
+                        </h1>
+
+                        <p class="date" id="currentDate">
+                            Saturday, September 5
+                        </p>
+                    </div>
+
+                    <div class="weather-status">
+                        <i class="fa-solid fa-sun" id="weatherIcon"></i>
+
+                        <span id="weatherDescription">
+                            Clear Sky
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Main Temperature -->
+
+                <div class="temperature-section">
+
+                    <div class="temperature">
+                        <span id="temperature">28</span>
+                        <span class="degree">°C</span>
+                    </div>
+
+                    <div class="feels-like">
+                        Feels like
+                        <strong id="feelsLike">29°C</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Weather Details -->
+
+                <div class="weather-details">
+
+                    <div class="weather-detail-card">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+
+                        <div>
+                            <p>Humidity</p>
+                            <strong id="humidity">65%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-detail-card">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+
+                        <div>
+                            <p>Wind Speed</p>
+                            <strong id="windSpeed">12 km/h</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-detail-card">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+
+                        <div>
+                            <p>Pressure</p>
+                            <strong id="pressure">1012 hPa</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-detail-card">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <div>
+                            <p>Visibility</p>
+                            <strong id="visibility">10 km</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- HOURLY FORECAST -->
+            <!-- ============================= -->
+
+            <section class="forecast-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Hourly Forecast</h2>
+                        <p>Weather conditions throughout the day</p>
+                    </div>
+
+                    <button class="view-more-btn">
+                        Next 24 Hours
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="hourly-forecast" id="hourlyForecast">
+
+                    <!-- Hour 1 -->
+
+                    <div class="hour-card active">
+
+                        <p>Now</p>
+
+                        <i class="fa-solid fa-sun weather-small-icon"></i>
+
+                        <strong>28°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            65%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 2 -->
+
+                    <div class="hour-card">
+
+                        <p>4 PM</p>
+
+                        <i class="fa-solid fa-cloud-sun weather-small-icon"></i>
+
+                        <strong>27°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            67%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 3 -->
+
+                    <div class="hour-card">
+
+                        <p>5 PM</p>
+
+                        <i class="fa-solid fa-cloud-sun weather-small-icon"></i>
+
+                        <strong>26°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            69%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 4 -->
+
+                    <div class="hour-card">
+
+                        <p>6 PM</p>
+
+                        <i class="fa-solid fa-cloud weather-small-icon"></i>
+
+                        <strong>25°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            72%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 5 -->
+
+                    <div class="hour-card">
+
+                        <p>7 PM</p>
+
+                        <i class="fa-solid fa-cloud weather-small-icon"></i>
+
+                        <strong>24°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            74%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 6 -->
+
+                    <div class="hour-card">
+
+                        <p>8 PM</p>
+
+                        <i class="fa-solid fa-cloud-moon weather-small-icon"></i>
+
+                        <strong>23°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            76%
+                        </span>
+
+                    </div>
+
+
+                    <!-- Hour 7 -->
+
+                    <div class="hour-card">
+
+                        <p>9 PM</p>
+
+                        <i class="fa-solid fa-cloud-moon weather-small-icon"></i>
+
+                        <strong>22°</strong>
+
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            78%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- 5 DAY FORECAST -->
+            <!-- ============================= -->
+
+            <section class="forecast-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>5-Day Forecast</h2>
+                        <p>Extended weather forecast</p>
+                    </div>
+
+                </div>
+
+
+                <div class="daily-forecast" id="dailyForecast">
+
+                    <!-- Today -->
+
+                    <div class="day-card">
+
+                        <div class="day-info">
+                            <strong>Today</strong>
+                            <span>Sep 5</span>
+                        </div>
+
+                        <i class="fa-solid fa-sun forecast-icon"></i>
+
+                        <span class="forecast-description">
+                            Clear
+                        </span>
+
+                        <div class="forecast-temperature">
+                            <strong>29°</strong>
+                            <span>22°</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Tomorrow -->
+
+                    <div class="day-card">
+
+                        <div class="day-info">
+                            <strong>Sun</strong>
+                            <span>Sep 6</span>
+                        </div>
+
+                        <i class="fa-solid fa-cloud-sun forecast-icon"></i>
+
+                        <span class="forecast-description">
+                            Partly Cloudy
+                        </span>
+
+                        <div class="forecast-temperature">
+                            <strong>28°</strong>
+                            <span>21°</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Monday -->
+
+                    <div class="day-card">
+
+                        <div class="day-info">
+                            <strong>Mon</strong>
+                            <span>Sep 7</span>
+                        </div>
+
+                        <i class="fa-solid fa-cloud-rain forecast-icon"></i>
+
+                        <span class="forecast-description">
+                            Light Rain
+                        </span>
+
+                        <div class="forecast-temperature">
+                            <strong>26°</strong>
+                            <span>20°</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Tuesday -->
+
+                    <div class="day-card">
+
+                        <div class="day-info">
+                            <strong>Tue</strong>
+                            <span>Sep 8</span>
+                        </div>
+
+                        <i class="fa-solid fa-cloud-showers-heavy forecast-icon"></i>
+
+                        <span class="forecast-description">
+                            Rain
+                        </span>
+
+                        <div class="forecast-temperature">
+                            <strong>25°</strong>
+                            <span>19°</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Wednesday -->
+
+                    <div class="day-card">
+
+                        <div class="day-info">
+                            <strong>Wed</strong>
+                            <span>Sep 9</span>
+                        </div>
+
+                        <i class="fa-solid fa-cloud-sun forecast-icon"></i>
+
+                        <span class="forecast-description">
+                            Cloudy
+                        </span>
+
+                        <div class="forecast-temperature">
+                            <strong>27°</strong>
+                            <span>20°</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- SUN INFORMATION -->
+            <!-- ============================= -->
+
+            <section class="sun-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Sunrise & Sunset</h2>
+                        <p>Today's sun information</p>
+                    </div>
+
+                </div>
+
+
+                <div class="sun-cards">
+
+                    <div class="sun-card">
+
+                        <div class="sun-icon sunrise">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+
+                        <div>
+                            <span>Sunrise</span>
+                            <strong id="sunrise">6:12 AM</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="sun-card">
+
+                        <div class="sun-icon sunset">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+
+                        <div>
+                            <span>Sunset</span>
+                            <strong id="sunset">6:35 PM</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- WEATHER TIP -->
+            <!-- ============================= -->
+
+            <section class="weather-tip">
+
+                <div class="tip-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <div>
+
+                    <h3>Weather Tip</h3>
+
+                    <p id="weatherTip">
+                        It's a beautiful day! Don't forget your sunglasses
+                        if you're heading outside.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ============================= -->
+        <!-- FOOTER -->
+        <!-- ============================= -->
+
+        <footer class="footer">
+
+            <p>
+                <i class="fa-solid fa-cloud-sun"></i>
+                WeatherNow
+            </p>
+
+            <span>
+                Weather data powered by OpenWeatherMap
+            </span>
+
+            <span>
+                © 2026 WeatherNow
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

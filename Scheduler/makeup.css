@@ -1,0 +1,334 @@
+
+/* ================================
+   General Styles
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   Main Container
+================================ */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.header {
+    background: #4f46e5;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+
+/* ================================
+   Task Form
+================================ */
+
+.task-form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.task-form h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+
+/* ================================
+   Form Groups
+================================ */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4f46e5;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/* ================================
+   Buttons
+================================ */
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#addTaskBtn {
+    background: #4f46e5;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+}
+
+#addTaskBtn:hover {
+    background: #4338ca;
+}
+
+
+/* ================================
+   Schedule Section
+================================ */
+
+.schedule {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.schedule-header h2 {
+    color: #222;
+}
+
+
+/* ================================
+   Filter
+================================ */
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.filter input {
+    padding: 9px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+}
+
+#clearFilter {
+    background: #6b7280;
+    color: white;
+}
+
+#clearFilter:hover {
+    background: #4b5563;
+}
+
+
+/* ================================
+   Task List
+================================ */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* ================================
+   Individual Task
+================================ */
+
+.task {
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid #4f46e5;
+    padding: 18px;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.task h3 {
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.task p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.task .task-date {
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.task .task-description {
+    margin-top: 10px;
+}
+
+
+/* ================================
+   Task Buttons
+================================ */
+
+.task-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn {
+    background: #f59e0b;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #d97706;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+
+/* ================================
+   Empty Message
+================================ */
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+.empty-message p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+/* ================================
+   Responsive Design
+================================ */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .schedule-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .filter input {
+        flex: 1;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .task-form,
+    .schedule {
+        padding: 18px;
+    }
+
+    .header {
+        padding: 25px 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter input,
+    #clearFilter {
+        width: 100%;
+    }
+}
